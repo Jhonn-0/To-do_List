@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="todo">
+    <h2>Lista de tarefas</h2>
+    <div class="input">
+        <input
+                type="text"
+                class="input-field"
+                id="todoInput"
+                placeholder="Adicione uma tarefa">
+        <button class="btn" onclick="createTask()">Add</button>
+    </div>
+    <ul class="scroll" id="todoList"></ul>
+    <div>
+        <hr class="counter">
+        <div class="counter-container">
+            <p><span id="todoCount">0</span> Total items</p>
+            <button id="deleteButton" onclick="deleteAllTasks()">Delete All</button>
+        </div>
+    </div>
+</section>
+</body>
+</html>
