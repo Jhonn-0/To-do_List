@@ -1,30 +1,148 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>To-Do List</title>
-    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnotaAí - Sua Lista de Tarefas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<section class="todo">
-    <h2>Lista de tarefas</h2>
-    <div class="input">
-        <input
-                type="text"
-                class="input-field"
-                id="todoInput"
-                placeholder="Adicione uma tarefa">
-        <button class="btn" onclick="createTask()">Add</button>
+<section class="Sec_left">
+    <div class="app-container">
+        <aside class="sidebar-left">
+             <div class="app-logo">AnotaAí</div>
+           <div class="my-lists">
+                <h3>Minha Lista</h3>
+               <ul class="sidebar-list">
+                <li class="list-Life active">
+                    <i class="fas fa-heart list-icon"></i>
+                    <span>Vida</span>
+                </li>
+                <li class="list-Work">
+                    <i class="fas fa-briefcase list-icon"></i>
+                    <span>Trabalho</span>
+                </li>
+            </ul>
+
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="greeting">
+                    <i class="fas fa-cloud-sun greeting-icon"></i> <h1>Boa tarde!</h1>
+                    <p>Qual é seu plano para hoje?</p>
+                </div>
+              
+            
+            </header>
+
+            <section class="todo-input-section">
+                <div class="add-todo-wrapper">
+                    <input type="text" placeholder="Add Todo" class="add-todo-input">
+                    <button class="add-todo-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </section>
+            <section class="todo-list-section">
+                
+            </section>
+            <div class="modal-overlay" id="editModalOverlay"></div>
+              <div class="todo-header">
+                  <p class="Total_List">Minhas Tarefas (<span id="todoCount">0</span>)</p>
+                    <button class="deleteButton" id="deleteButton">deleteAllTasks</button>
+                </div>
+
+<div class="edit-modal" id="editModal">
+    <h2>Editar Tarefa</h2>
+    <label>Nome da Tarefa</label>
+    <input type="text" id="editTaskName" placeholder="Nome da tarefa">
+
+    <label>Data</label>
+    <input type="date" id="editTaskDate">
+
+    <label>Prioridade</label>
+    <select id="editTaskPriority">
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+    </select>
+
+    <label>Tag / Categoria</label>
+    <input type="text" id="editTaskTag" placeholder="Ex: trabalho, pessoal">
+
+    <div class="modal-buttons">
+        <button id="saveEditButton">Salvar</button>
+        <button id="cancelEditButton">Cancelar</button>
     </div>
-    <ul class="scroll" id="todoList"></ul>
-    <div>
-        <hr class="counter">
-        <div class="counter-container">
-            <p><span id="todoCount">0</span> Total items</p>
-            <button id="deleteButton" onclick="deleteAllTasks()">Delete All</button>
-        </div>
+</div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="calendar-widget">
+                <div class="calendar-header">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Feb 2023</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="calendar-grid">
+                    <span class="day-name">D</span>
+                    <span class="day-name">S</span>
+                    <span class="day-name">T</span>
+                    <span class="day-name">Q</span>
+                    <span class="day-name">Q</span>
+                    <span class="day-name">S</span>
+                    <span class="day-name">S</span>
+                    <span class="day empty"></span>
+                    <span class="day">1</span>
+                    <span class="day">2</span>
+                    <span class="day">3</span>
+                    <span class="day">4</span>
+                    <span class="day">5</span>
+                    <span class="day">6</span>
+                    <span class="day">7</span>
+                    <span class="day">8</span>
+                    <span class="day has-todo">9</span>
+                    <span class="day has-todo">10</span>
+                    <span class="day">11</span>
+                    <span class="day">12</span>
+                    <span class="day">13</span>
+                    <span class="day">14</span>
+                    <span class="day">15</span>
+                    <span class="day">16</span>
+                    <span class="day">17</span>
+                    <span class="day">18</span>
+                    <span class="day">19</span>
+                    <span class="day">20</span>
+                    <span class="day">21</span>
+                    <span class="day today">22</span>
+                    <span class="day">23</span>
+                    <span class="day">24</span>
+                    <span class="day">25</span>
+                    <span class="day">26</span>
+                    <span class="day">27</span>
+                    <span class="day">28</span>
+                </div>
+                <button class="show-all-button">Show All</button>
+            </div>
+
+            <div class="sort-method-section">
+                <h3>Sort Method</h3>
+                <div class="sort-options">
+                    <button class="sort-button">Name</button>
+                    <button class="sort-button">Date</button>
+                    <button class="sort-button">Priority</button>
+                    <button class="sort-button">Tag</button>
+                </div>
+            </div>
+        </aside>
     </div>
 </section>
+    <script src="script2.js"></script>
 </body>
 </html>
