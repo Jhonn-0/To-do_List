@@ -1,8 +1,8 @@
-Projeto Todo_List com java
+Projeto To-do_List com java
 
-# 📝 Todo List
+# 📝 To do List
 
-Um projeto extremamente interessante de **Lista de Tarefas (Todo List)** desenvolvido com **Java + Spring Boot** no backend e **HTML, CSS, JavaScript** no frontend. Utiliza o banco de dados em memória **H2 Database**.
+Um projeto extremamente interessante de **Lista de Tarefas (To do List)** desenvolvido com **Java + Spring Boot** no backend e **HTML, CSS, JavaScript** no frontend. Utiliza o banco de dados em memória **H2 Database**.
 
 ## 🚀 Funcionalidades
 
